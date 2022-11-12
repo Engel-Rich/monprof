@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:monprof/back-end/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Parent {
@@ -35,7 +36,7 @@ class Parent {
   Future register(String password) async {
     final uri = Uri(
         scheme: 'http',
-        host: 'www.ess-ucac.org',
+        host: '$domain',
         path: 'monprof/web/consultation/eleveService.php',
         queryParameters: {
           'requete_type': '3',
