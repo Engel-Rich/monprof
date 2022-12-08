@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:monprof/back-end/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Eleve {
@@ -51,20 +52,26 @@ class Eleve {
   // }
 
   Future register(String password) async {
-    final uri = Uri(
-        scheme: 'http',
-        host: 'www.ess-ucac.org',
-        path: 'monprof/web/consultation/eleveService.php',
-        queryParameters: {
-          'requete_type': '1',
-          'nom': nom,
-          'ecole': ecole,
-          'email': email,
-          "telephone": telephone,
-          "password": password,
-          'sexe': sexe
-        });
-    var response = await http.post(uri);
+    final uri = Uri.parse(
+        'http://$domain:$port/monprof/web/consultation/eleveService.php?requete_type=1&nom=$nom&ecole=$ecole&email=$email&telephone=$telephone&password=$password&sexe=$sexe');
+    print(uri);
+    var response = await http.post(
+      uri,
+      // ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8']
+      // headers: {
+      //   'Content-Type': 'application/json;charset=UTF-8',
+      //   'Charset': 'utf-8',
+      // },
+      // body: jsonEncode({
+      //   'requete_type': '1',
+      //   'nom': nom,
+      //   'ecole': ecole,
+      //   'email': email,
+      //   "telephone": telephone,
+      //   "password": password,
+      //   'sexe': sexe
+      // }),
+    );
     print(uri);
     if (response.statusCode == 200) {
       print(response.body);

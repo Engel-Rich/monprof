@@ -119,6 +119,7 @@ class _CoursState extends State<Cours> {
     final url = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: 'monprof/web/consultation/videoService.php',
         queryParameters: {
           "requete_type": '1',
@@ -171,6 +172,7 @@ class _CoursState extends State<Cours> {
     final url = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: 'monprof/web/consultation/sujetService.php',
         queryParameters: {
           "requete_type": '1',
@@ -213,6 +215,7 @@ class _CoursState extends State<Cours> {
     final url = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
 //http:$domain/monprof/web/consultation/sujetService.php?requete_type=2&id_categorie=1&id_matiere=2&id_classe=1
         path: 'monprof/web/consultation/sujetService.php',
         queryParameters: {

@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
   Future<void> listtrimestre() async {
     var list = <String>[];
     final url = Uri.parse(
-        'http://$domain/monprof/web/consultation/categorieService.php?requete_type=1');
+        'http://$domain:$port/monprof/web/consultation/categorieService.php?requete_type=1');
     final response = await http.get(url);
     if (response.statusCode == 200) {
       if (response.body.isNotEmpty) {
@@ -67,6 +67,7 @@ class _HomeState extends State<Home> {
     final url = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: 'monprof/web/consultation/matiereService.php',
         queryParameters: {
           'requete_type': '1',

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:monprof/UI/home.dart';
+// import 'package:monprof/UI/home.dart';
 import 'package:monprof/back-end/api.dart';
 import 'package:monprof/back-end/transition.dart';
 
@@ -28,6 +28,7 @@ class _ActiveCompteState extends State<ActiveCompte> {
     final uri = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: '/monprof/web/consultation/codeActivationService.php',
         queryParameters: {
           "requete_type": '1',
@@ -142,7 +143,7 @@ class _ActiveCompteState extends State<ActiveCompte> {
                               fontSize: 17),
                         ),
                         style: TextButton.styleFrom(
-                          primary: Colors.white,
+                          foregroundColor: Colors.white,
                           backgroundColor: Colors.blue,
                           elevation: 3,
                         ),

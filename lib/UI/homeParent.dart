@@ -29,6 +29,7 @@ class _HomeParentState extends State<HomeParent> {
     final uri = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: '/monprof/web/consultation/categorieService.php',
         queryParameters: {
           "requete_type": '4',

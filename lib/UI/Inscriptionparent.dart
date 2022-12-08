@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:monprof/UI/contratuser.dart';
@@ -254,9 +256,8 @@ class _InscriptionParentState extends State<InscriptionParent> {
                                       continue;
                                     }
                                   }
-
-                                  print('$idP' +
-                                      "l'id de l'eleve est dans la session");
+                                  print(
+                                      "$idP  l'id de l'eleve est dans la session");
                                   // eleve.idEleve = (result[0])['id'];
                                   // eleve.idclasse = Eleve.listclasse[eleve.classe];
 
@@ -267,11 +268,7 @@ class _InscriptionParentState extends State<InscriptionParent> {
                                     parent.idParent = idP;
                                     Parent.saveParent(parent, idP);
                                   }
-                                  // Eleve.saveEleve(
-                                  //   eleve,
-                                  //   id,
-                                  //   IdEleve,
-                                  // );
+                                  // ignore: use_build_context_synchronously
                                   Navigator.pushReplacement(
                                     context,
                                     PageTransition(

@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:monprof/UI/Inscriptionparent.dart';
-import 'package:monprof/UI/avant_page.dart';
-import 'package:monprof/UI/onboardinding.dart';
-import 'package:monprof/UI/paiementparent.dart';
+// import 'package:monprof/UI/Inscriptionparent.dart';
+// import 'package:monprof/UI/avant_page.dart';
+// import 'package:monprof/UI/onboardinding.dart';
+// import 'package:monprof/UI/paiementparent.dart';
 
 import 'UI/splash_screen.dart';
 

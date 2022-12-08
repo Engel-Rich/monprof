@@ -38,6 +38,7 @@ class _PaiementState extends State<Paiement> {
     final uri = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: '/monprof/web/consultation/paiementAttenteService.php',
         queryParameters: {
           "requete_type": '1',
@@ -281,10 +282,13 @@ class _PaiementState extends State<Paiement> {
                                         height: 50,
                                         child:
                                             Image.asset('assets/orange.png')),
-                                    const Text(
-                                      ' #150*11*MONPROF*Montant#',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
+                                    const SizedBox(width: 10),
+                                    const Expanded(
+                                      child: Text(
+                                        ' #150*11*MONPROF*Montant#',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
                                   ],
                                 ),

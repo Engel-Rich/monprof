@@ -32,11 +32,13 @@ class Parent {
       sexe: '');
 
   //Fin du modele parent et des données session
+// http://38.242.146.73:951/monprof/web/consultation/eleveService.php?requete_type=3&profession_parent=parents+o&nom=parents+&email=engelbet%40tsinda.com&telephone=693006239&password=fhkieuojdidj&sexe=HOMME
 
   Future register(String password) async {
     final uri = Uri(
         scheme: 'http',
-        host: '$domain',
+        port: port,
+        host: domain,
         path: 'monprof/web/consultation/eleveService.php',
         queryParameters: {
           'requete_type': '3',
@@ -47,17 +49,12 @@ class Parent {
           "password": password,
           'sexe': sexe
         });
-    var response = await http.post(uri);
     print(uri);
+    var response = await http.post(uri);
     if (response.statusCode == 200) {
-      print(response.body);
-
+      debugPrint(response.body.toString());
       var parsed = jsonDecode(response.body);
-      debugPrint("les datas du parent :" + parsed.toString());
-      // print(parsed);
-      // print((parsed[0])['id']);
-      //return parsed.map<String>((json) => String.fromMap(json)).toList();
-
+      debugPrint("les datas du parent :$parsed");
       Map<String, String> result = {};
       result['nom'] = nom!;
       result['email'] = email!;
@@ -65,6 +62,7 @@ class Parent {
       result['profession'] = profession!;
       result['sexe'] = sexe!;
       idParent = result['id'] = (parsed[0])['id'];
+      // = (parsed[0])['id'];
       parsed[0] = result;
       print(parsed);
       return parsed;

@@ -24,6 +24,7 @@ class _SuggestionState extends State<Suggestion> {
   void suggestion(String titre, String desc) async {
     final uri = Uri(
         scheme: 'http',
+        port: port,
         host: '$domain',
         path: 'monprof/web/consultation/suggestionService.php',
         queryParameters: {

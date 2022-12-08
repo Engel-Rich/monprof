@@ -46,7 +46,7 @@ class _InscriptionState extends State<Inscription> {
   Future<void> listcours() async {
     var list = <Map<String, String>>[];
     final url = Uri.parse(
-        'http://$domain/monprof/web/consultation/classeService.php?requete_type=1');
+        'http://$domain:$port/monprof/web/consultation/classeService.php?requete_type=1');
     final response = await http.get(url);
     if (response.statusCode == 200) {
       if (response.body.isNotEmpty) {
@@ -446,11 +446,6 @@ class _InscriptionState extends State<Inscription> {
                                     eleve.idEleve = idE;
                                     Eleve.saveEleve(eleve, idE);
                                   }
-                                  // Eleve.saveEleve(
-                                  //   eleve,
-                                  //   id,
-                                  //   IdEleve,
-                                  // );
                                   Navigator.pushReplacement(
                                     context,
                                     PageTransition(

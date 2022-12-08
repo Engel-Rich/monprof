@@ -37,6 +37,7 @@ class _QuestionState extends State<Question> {
     final url = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: 'monprof/web/consultation/sujetService.php',
         queryParameters: {
           "requete_type": '1',
@@ -79,6 +80,7 @@ class _QuestionState extends State<Question> {
     final url = Uri(
         scheme: 'http',
         host: '$domain',
+        port: port,
         path: 'monprof/web/consultation/sujetService.php',
         queryParameters: {
           "requete_type": '2',

@@ -41,6 +41,7 @@ class _PaiementparentState extends State<Paiementparent> {
       //     'http://$domain/monprof/web/consultation/paiementAttenteService.php?requete_type=1&id_categorie=$trim&id_classe=$idClasse&id_eleve=${Parent.sessionParent.idParent}&numero_debite=$numDebit&numero_credite=$numCredit&quantite=$quantite');
       final uri = Uri(
         scheme: 'http',
+        port: port,
         host: '$domain',
         path: '/monprof/web/consultation/paiementAttenteService.php',
       );
@@ -109,7 +110,7 @@ class _PaiementparentState extends State<Paiementparent> {
   Future<void> listcours() async {
     var list = <Map<String, String>>[];
     final url = Uri.parse(
-        'http://$domain/monprof/web/consultation/classeService.php?requete_type=1');
+        'http://$domain:$port/monprof/web/consultation/classeService.php?requete_type=1');
     final response = await http.get(url);
     if (response.statusCode == 200) {
       if (response.body.isNotEmpty) {
@@ -167,7 +168,7 @@ class _PaiementparentState extends State<Paiementparent> {
   Future<void> listtrimestre() async {
     List<Map<String, dynamic>> list = [];
     final url = Uri.parse(
-        'http://$domain/monprof/web/consultation/categorieService.php?requete_type=1');
+        'http://$domain:$port/monprof/web/consultation/categorieService.php?requete_type=1');
     final response = await http.get(url);
     if (response.statusCode == 200) {
       if (response.body.isNotEmpty) {
@@ -210,7 +211,7 @@ class _PaiementparentState extends State<Paiementparent> {
       print('les id des classe sont');
       print('un autre ways ');
       var urli =
-          "http://$domain/monprof/web/consultation/categorieService.php?requete_type=5&id_categorie=$trim&id_classe=$idClasse";
+          "http://$domain:$port/monprof/web/consultation/categorieService.php?requete_type=5&id_categorie=$trim&id_classe=$idClasse";
       final url = Uri.parse(urli);
       // Uri(
       //     scheme: 'http',
